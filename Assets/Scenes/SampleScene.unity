@@ -513,7 +513,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.13, y: 0.0087406635}
+  m_Offset: {x: -0.16, y: 0.0087406635}
   m_Size: {x: 0.54271007, y: 1.0916171}
   m_Direction: 0
 --- !u!95 &148398315
@@ -3195,7 +3195,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &970158279
