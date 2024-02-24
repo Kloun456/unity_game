@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed;
-    public int health;
+    public int maxHealth;
 
     private float horizontal;
     private float vertical;
@@ -14,12 +14,14 @@ public class PlayerController : MonoBehaviour
     private Vector2 lookDirection;
 
     private Animator animator;
+    private int currentHealth;
 
     private void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         lookDirection = new Vector2(0, 1);
+        currentHealth = maxHealth;
     }
 
 
@@ -48,7 +50,8 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        currentHealth -= damage;
+        UIHealthBar.instance.SetValue(currentHealth / (float)maxHealth);   
         //Debug.Log(health);
     }
 
