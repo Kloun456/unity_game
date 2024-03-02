@@ -7,7 +7,7 @@ public class SpawnEnemies : MonoBehaviour
     [Header("Enemies")]   
     public GameObject lookPointEnemy;
     public GameObject[] enemyTypes;
-    public Transform[] enemySpawners;
+    public List<Transform> enemySpawners;
     public int enemyCount;
 
     public float intervalSpawn;
@@ -33,8 +33,8 @@ public class SpawnEnemies : MonoBehaviour
 
         if (isEnemySpawned) {
             if (timerSpawnEnemies < 0 && counterEnemy < enemyCount) {
-                var spawner = enemySpawners[Random.Range(0, enemySpawners.Length)];
-
+                var spawner = enemySpawners[Random.Range(0, enemySpawners.Count)];
+                
                 SpawnController spawn = spawner.GetComponent<SpawnController>();
 
                 GameObject enemyType = enemyTypes[Random.Range(0, enemyTypes.Length)];
@@ -43,7 +43,7 @@ public class SpawnEnemies : MonoBehaviour
                 enemyController.LookX = spawn.LookXEnemy;
                 enemyController.LookY = spawn.LookYEnemy;
                 Debug.Log(enemy);
-                enemyController.direction = spawn.direction;
+                //enemyController.direction = spawn.direction;
                 enemyController.isVertical = spawn.isVertical;
                 enemy.transform.parent = transform;
                 enemies.Add(enemy);

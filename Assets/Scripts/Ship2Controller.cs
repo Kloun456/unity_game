@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ship1Controller : MonoBehaviour
+public class Ship2Controller : MonoBehaviour
 {
     public float speed;
     public bool isVertical;
@@ -34,15 +34,15 @@ public class Ship1Controller : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 position = rigidBody.position;
-        
+
         timerAtack -= Time.deltaTime;
-        if (timerAtack < 0) 
+        if (timerAtack < 0)
         {
             timerAtack = timeAtack;
             animator.SetBool("Is Atack", true);
             GameObject bulletObject = Instantiate(bulletPrefab, shotPoint.position, transform.rotation);
             Bullet bulletController = bulletObject.GetComponent<Bullet>();
-            bulletController.Launch(new Vector2 (LookX, LookY), shotForce);
+            bulletController.Launch(new Vector2(LookX, LookY), shotForce);
         }
 
         rigidBody.MovePosition(position);
