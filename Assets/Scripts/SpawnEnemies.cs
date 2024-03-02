@@ -36,7 +36,7 @@ public class SpawnEnemies : MonoBehaviour
                 var spawner = enemySpawners[Random.Range(0, enemySpawners.Count)];
                 
                 SpawnController spawn = spawner.GetComponent<SpawnController>();
-
+                enemySpawners.Remove(spawner);
                 GameObject enemyType = enemyTypes[Random.Range(0, enemyTypes.Length)];
                 GameObject enemy = Instantiate(enemyType, spawner.position, Quaternion.identity) as GameObject; // что такое Quaternion
                 Ship1Controller enemyController = enemy.GetComponent<Ship1Controller>();
